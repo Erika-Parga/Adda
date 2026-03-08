@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import auth
+from middlewares.auth import verificar_usuario
 
 app = FastAPI()
 
@@ -20,3 +21,8 @@ app.add_middleware(
 @app.get("/")
 def inicio():
     return {"mensaje": "API de Adda funcionando"}
+
+@app.get("/prueba")
+async def prueba_verificaciom(data: tuple = Depends(verificar_usuario)):
+    uid, role = data
+    return {"uid": uid, "role": role}

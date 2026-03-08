@@ -1,10 +1,8 @@
-
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from firebase_admin import auth
-
-from config.firebase import db
-
+import requests
+from config.firebase import db, api_key
 
 class registro(BaseModel):
     name: str
@@ -13,9 +11,10 @@ class registro(BaseModel):
 
 class login(BaseModel):
     email: str 
-    pasword: str
+    password: str
 
 router = APIRouter(prefix="/auth")
+url = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={api_key}"
 
 @router.post("/registro")
 async def crear_registro(user: registro):
@@ -36,3 +35,22 @@ async def crear_registro(user: registro):
     
     return {"mensaje": "Usuario creado exitosamente", "uid": uid}
 
+@router.post("/login")
+async def iniciar_sesión(user: login):
+    try:
+        respuesta = requests.post(url, json={
+            "email": user.email,
+            "password": user.password,
+            "returnSecureToken": True
+        })
+        datos = respuesta.json()
+        if "error" in datos:
+            raise HTTPException(status_code=401, detail="Credenciales incorrectas")
+        token = datos["idToken"]
+        
+    except HTTPException:
+        raise  # deja pasar los HTTPException que lance
+    except:
+        raise HTTPException(status_code=400, detail="Error inesperado")
+    
+    return {"mensaje": "Inicio de sesión exitoso", "token": token}

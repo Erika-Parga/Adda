@@ -9,6 +9,7 @@ from firebase_admin import firestore
 load_dotenv()
 
 db_cred = os.getenv('FIREBASE_CREDENTIALS')
+api_key = os.getenv('FIREBASE_API_KEY')
 
 # Use a service account.
 cred = credentials.Certificate(db_cred)
