@@ -1,12 +1,13 @@
 from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import auth, centros
+from routes import auth, centros, eventos
 from middlewares.auth import verificar_usuario
 
 app = FastAPI()
 
 app.include_router(auth.router)
 app.include_router(centros.router)
+app.include_router(eventos.router)
 
 #aqui pones las url de los dominios que usaras, en este caso los localhost tanto de la api como de npx serve
 #origins = [
