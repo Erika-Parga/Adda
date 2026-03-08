@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis eventos</title>
+    <link rel="stylesheet" href="../css/calendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="../index.html" class="logo">Adda</a>
+                <button class="menu-btn" id="menuBtn">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="profile.html">Mi perfil</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#agenda">Agenda</a></li>
+                    <li><a href="#acerca">Acerca de</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="nav-buttons">
+                        <button class="nav-btn" id="prev-month"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="nav-btn" id="next-month"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="month-year" id="month-year">Marzo 2026</div>
+                </div>
+
+                <div class="weekdays">
+                    <div class="weekday">Lun</div>
+                    <div class="weekday">Mar</div>
+                    <div class="weekday">Mie</div>
+                    <div class="weekday">Jue</div>
+                    <div class="weekday">Vie</div>
+                    <div class="weekday">Sab</div>
+                    <div class="weekday">Dom</div>
+                </div>
+
+                <div class="days" id="days"></div>
+
+                <div class="calendar-footer">
+                    <button class="today-btn" id="today-btn"><i class="fa-solid fa-calendar-day"></i>Hoy</button>
+                    <div class="event-indicator">
+                        <i class="fas fa-circle" style="color:var(--accent);font-size:0.6rem;"></i>
+                        <span>Tiene eventos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-panel" id="event-panel">
+                <div class="event-header">
+                    <div class="event-date" id="event-date">Seleccione una fecha</div>
+                    <i class="fas fa-calendar-alt event-icon"></i>
+                </div>
+                <div class="event-list"  id="event-list">
+                    <div class="no-events">Seleccione una fecha con eventos para verlos aqui</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <div class="overlay"></div>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/navbar.js"></script>
+</body>
+</html>
