@@ -47,10 +47,20 @@ async def iniciar_sesión(user: login):
         if "error" in datos:
             raise HTTPException(status_code=401, detail="Credenciales incorrectas")
         token = datos["idToken"]
+        decoded_token = auth.verify_id_token(token)
+        uid = decoded_token['uid']
+        doc_ref = db.collection("usuarios").document(uid)
+        doc = doc_ref.get()
+        if doc.exists:
+            dic=doc.to_dict()
+        else:
+            raise HTTPException(status_code=404, detail="No se encuentra ese documento")
+        
+        role = dic["rol"]
         
     except HTTPException:
         raise  # deja pasar los HTTPException que lance
-    except:
-        raise HTTPException(status_code=400, detail="Error inesperado")
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
     
-    return {"mensaje": "Inicio de sesión exitoso", "token": token}
+    return {"mensaje": "Inicio de sesión exitoso", "token": token, "rol": role }
