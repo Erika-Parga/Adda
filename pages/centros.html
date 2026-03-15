@@ -22,7 +22,18 @@
 
     <main>
         <h1>Gestión de centros culturales</h1>
-        <div id="eventsContainer">
+        <button id="agregarButton">Agregar centro</button>
+        <div class="forms-container" id="formContainer">
+            <form>
+                <input type="text" id="centerName" placeholder="Ingrese el nombre del centro">
+                <input type="text" id="centerDir" placeholder="Ingrese la ubicación del centro">
+                <textarea name="centerDesc" id="centerDesc"></textarea>
+                <input type="text" id="centerResp" placeholder="Ingrese el ID del responsable del centro">
+                <button id="submitButton">Crear centro</button>
+            </form>
+        </div>
+
+        <div id="centrosContainer">
 
         </div>
 
@@ -31,5 +42,8 @@
     <div class="overlay"></div>
     
 <script src="../js/navbar.js"></script>
+<script src="../js/protect.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/centros.js"></script>
 </body>
 </html>

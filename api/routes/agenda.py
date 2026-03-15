@@ -21,10 +21,21 @@ async def obtener_agenda(data: tuple =Depends(verificar_usuario)):
         eventoDocs = db.collection("eventos").document(evento_id)
 
         evento_doc = eventoDocs.get()
+
         if evento_doc.exists:
             evento_data = evento_doc.to_dict()
             evento_data["agenda_id"] = doc.id
             docs_encontrados.append(evento_data)
+
+            centro_id = evento_data.get("centro_uid")
+
+            if centro_id:
+                centroDocs = db.collection("centros").document(centro_id)
+
+                centro_doc = centroDocs.get()
+                if centro_doc.exists:
+                    centro_data = centro_doc.to_dict()
+                    evento_data["centro_nombre"] = centro_data["nombre"]
         
     return docs_encontrados
 

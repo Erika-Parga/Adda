@@ -26,6 +26,7 @@ body {
     background: linear-gradient(180deg, #fff 20%, #f98e2a 90%);
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
     margin: 0;
+    visibility: hidden;
 }
 
 .container {

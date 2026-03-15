@@ -1,0 +1,15 @@
+# API
+api/venv/
+api/.env
+api/firebase-credentials.json
+api/__pycache__/
+api/**/__pycache__/
+api/*.pyc
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

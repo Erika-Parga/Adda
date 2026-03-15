@@ -22,6 +22,16 @@ async def obtener_eventos():
         evento = doc.to_dict()
         evento["id"] = doc.id
         eventos.append(evento)
+
+        centro_id = evento.get("centro_uid")
+        if centro_id:
+            centroDocs = db.collection("centros").document(centro_id)
+
+            centro_doc = centroDocs.get()
+            if centro_doc.exists:
+                centro_data = centro_doc.to_dict()
+                evento["centro_nombre"] = centro_data["nombre"]
+
     return eventos
 
 @router.get("/{id}")

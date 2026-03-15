@@ -5,9 +5,10 @@ from middlewares.auth import verificar_admin
 
 
 class centro(BaseModel):
-    name: str
+    nombre: str
     direccion: str 
     descripcion: str
+    responsable_uid: str
 
 router = APIRouter(prefix="/centros")
 
@@ -19,6 +20,15 @@ async def obtener_centros():
         centro = doc.to_dict()
         centro["id"] = doc.id
         centros.append(centro)
+
+        responsable_id = centro.get("responsable_uid")
+        if responsable_id:
+            respDocs = db.collection("usuarios").document(responsable_id)
+
+            responsable_doc = respDocs.get()
+            if responsable_doc.exists:
+                usuario_data = responsable_doc.to_dict()
+                centro["responsable_nombre"] = usuario_data["nombre"]
     return centros
 
 @router.get("/{id}")
@@ -33,7 +43,7 @@ async def obtener_centro_por_id(id:str):
 
 @router.post("/")
 async def crear_centro(nuevoCentro: centro, data: tuple = Depends(verificar_admin)):
-    nuevo_centro = {"nombre": nuevoCentro.name, "direccion": nuevoCentro.direccion, "descripcion": nuevoCentro.descripcion}
+    nuevo_centro = {"nombre": nuevoCentro.nombre, "direccion": nuevoCentro.direccion, "descripcion": nuevoCentro.descripcion, "responsable_uid": nuevoCentro.responsable_uid}
     doc_ref = db.collection("centros").add(nuevo_centro)
     return {"mensaje": "Centro creado exitosamente", "id": doc_ref[1].id}
 
@@ -42,7 +52,7 @@ async def actualizar_centro(id:str,actualCentro: centro, data: tuple = Depends(v
     doc_ref = db.collection("centros").document(id)
     doc = doc_ref.get()
     if doc.exists:
-        doc_ref.update({"nombre": actualCentro.name, "direccion": actualCentro.direccion, "descripcion": actualCentro.descripcion})
+        doc_ref.update({"nombre": actualCentro.nombre, "direccion": actualCentro.direccion, "descripcion": actualCentro.descripcion, "responsable_uid": actualCentro.responsable_uid})
     else:
             raise HTTPException(status_code=404, detail="No se encuentra ese centro")
     return {"mensaje": "Centro actualizado exitosamente"}   

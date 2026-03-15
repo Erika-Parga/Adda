@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+protect('usuario', 'index.html')
+
+
+document.addEventListener('DOMContentLoaded', async function() {
   const monthYearEl = document.getElementById('month-year');
   const daysEl = document.getElementById('days');
   const prevMonthBtn = document.getElementById('prev-month');
@@ -10,31 +13,41 @@ document.addEventListener('DOMContentLoaded', function() {
   
   let currentDate = new Date();
   let selectedDate = null;
-  
+  const events = {}
   // Sample events data
-  const events = {
-    '2026-3-15': [
-      { time: '10:00 AM', text: 'Team meeting' },
-      { time: '02:30 PM', text: 'Project review' }
-    ],
-    '2026-3-20': [
-      { time: '11:00 AM', text: 'Doctor appointment' }
-    ],
-    '2026-3-25': [
-      { time: '07:00 PM', text: 'Birthday party' },
-      { time: '09:00 PM', text: 'Dinner with friends' }
-    ],
-    '2026-4-2': [
-      { time: '03:00 PM', text: 'Conference call' }
-    ],
-    '2026-4-10': [
-      { time: 'All day', text: 'Project deadline' }
-    ],
-    '2026-4-18': [
-      { time: '12:00 PM', text: 'Lunch with client' },
-      { time: '04:00 PM', text: 'Product demo' }
-    ]
-  };
+
+  const url = `${API_URL}/agenda`;
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { 'Authorization': 'Bearer ' + token, "Content-Type": "application/json"}
+        });
+
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        const fechas = await response.json()
+
+        fechas.forEach(evento => {
+          const fecha = new Date(evento.fecha)
+          const clave = `${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}`
+          if (!events[clave]) {
+              events[clave] = []
+          }
+
+          events[clave].push({
+              time: `${fecha.getHours()}:${fecha.getMinutes()}`,
+              text: evento.titulo
+          })
+          
+
+        })
+        
+
+    } catch (error) {
+        console.error(error.message);
+    }
+
   
   // Render calendar
   function renderCalendar() {
