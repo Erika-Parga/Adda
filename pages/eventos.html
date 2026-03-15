@@ -22,6 +22,17 @@
 
     <main>
         <h1>Gestión de eventos</h1>
+        <button id="agregarButton">Agregar evento</button>
+        <div class="forms-container" id="formContainer">
+            <form>
+                <input type="text" id="eventName" placeholder="Ingrese el titulo del evento">
+                <input type="text" id="eventCat" placeholder="Ingrese la categoria del evento">
+                <input type="text" id="eventDir" placeholder="Ingrese la ubicación del evento">
+                <input type="datetime-local" id="eventFechaHora" placeholder="Ingrese la fecha y hora del evento">
+                <textarea name="eventDesc" id="eventDesc"></textarea>
+                <button id="submitButton">Crear evento</button>
+            </form>
+        </div>
         <div id="eventsContainer">
 
         </div>
@@ -32,5 +43,7 @@
     
 <script src="../js/navbar.js"></script>
 <script src="../js/protect.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/eventos.js"></script>
 </body>
 </html>
