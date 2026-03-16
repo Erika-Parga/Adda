@@ -56,14 +56,13 @@ async def crear_evento(nuevoEvento: agenda, data: tuple = Depends(verificar_usua
 
 @router.delete("/{id}")
 async def eliminar_evento(id:str, data: tuple = Depends(verificar_usuario)):
-    docs = db.collection("agenda")
-    uid, role = data
-    query = docs.where("usuario_uid", "==", uid).where("evento_id","==", id)
-    resultados = list(query.stream())
-    if len(resultados) > 0: 
-        resultados[0].reference.delete()
+    doc_ref = db.collection("agenda").document(id)
+    doc = doc_ref.get()
+    if doc.exists:
+        doc_ref.delete()
     else:
-            raise HTTPException(status_code=404, detail="No se encuentra ese evento")
+            raise HTTPException(status_code=404, detail="No se encuentra ese centro")
     return {"mensaje": "Evento eliminado exitosamente"}   
+
         
     
