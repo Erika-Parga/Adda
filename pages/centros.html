@@ -13,8 +13,12 @@
                 <a href="#" class="logo">Adda</a>
                 <button class="menu-btn" id="menuBtn">☰</button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="pages/login.html">Inicio de sesión</a></li>
-                    <li><a href="#eventos">Eventos</a></li>
+                    <li class="nav-visitante"><a href="pages/login.html">Iniciar sesión</a></li>
+                    <li><a href="../index.html">Eventos</a></li>
+                    <li class="nav-usuario"><a href="pages/calendar.html">Agenda</a></li>
+                    <li class="nav-centro"><a href="pages/eventos.html">Gestión de eventos</a></li>
+                    <li class="nav-admin"><a href="">Centros</a></li>
+                    <li class="nav-sesion"><a href="#" id="cerrarSesion">Cerrar sesión</a></li>
                 </ul>
             </div>
         </nav>
@@ -41,9 +45,10 @@
 
     <div class="overlay"></div>
     
-<script src="../js/navbar.js"></script>
+
 <script src="../js/protect.js"></script>
 <script src="../js/config.js"></script>
+<script src="../js/navbar.js"></script>
 <script src="../js/centros.js"></script>
 </body>
 </html>

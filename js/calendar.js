@@ -37,7 +37,9 @@ document.addEventListener('DOMContentLoaded', async function() {
 
           events[clave].push({
               time: `${fecha.getHours()}:${fecha.getMinutes()}`,
-              text: evento.titulo
+              text: evento.titulo,
+              ubicacion: evento.ubicacion,
+              agenda_id: evento.agenda_id
           })
           
 
@@ -175,6 +177,8 @@ document.addEventListener('DOMContentLoaded', async function() {
           <div class="event-color"></div>
           <div class="event-time">${event.time}</div>
           <div class="event-text">${event.text}</div>
+          <div>${event.ubicacion}</div>
+          <button class="btn-eliminar-agenda" data-id="${event.agenda_id}">Cancelar</button>
         `;
         eventListEl.appendChild(eventItem);
       });
@@ -207,6 +211,30 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     const dateStr = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
     showEvents(dateStr);
+  });
+
+  eventListEl.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('btn-eliminar-agenda')) {
+        const id = e.target.dataset.id
+        console.log("agenda_id:", id)
+        const url = `${API_URL}/agenda/${id}`;
+    
+        try {
+            const response = await fetch(url, {
+                method: "DELETE",   
+                headers: {"Content-Type": "application/json",
+                "Authorization": "Bearer " + sessionStorage.getItem('authToken')
+                }
+            });
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+            await window.location.reload()
+            
+        } catch (error) {
+            console.error(error.message)
+        }
+        }
   });
   
   // Initialize calendar

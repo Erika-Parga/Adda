@@ -157,6 +157,11 @@ document.addEventListener("DOMContentLoaded", async function() {
         modoEdicion = false      
         centroEditandoId = null 
         recargarCentros()
+        centerName.value = ''
+        centerDir.value = ''
+        centerDesc.value = ''
+        centerResp.value = ''
+        submitBtn.innerHTML = 'Crear centro'
 
     })
 

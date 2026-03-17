@@ -45,7 +45,11 @@ async def obtener_centro_por_id(id:str):
 async def crear_centro(nuevoCentro: centro, data: tuple = Depends(verificar_admin)):
     nuevo_centro = {"nombre": nuevoCentro.nombre, "direccion": nuevoCentro.direccion, "descripcion": nuevoCentro.descripcion, "responsable_uid": nuevoCentro.responsable_uid}
     doc_ref = db.collection("centros").add(nuevo_centro)
-    return {"mensaje": "Centro creado exitosamente", "id": doc_ref[1].id}
+    centro_id = doc_ref[1].id
+    db.collection("usuarios").document(nuevoCentro.responsable_uid).update({
+    "centro_uid": centro_id})
+    return {"mensaje": "Centro creado exitosamente", "id": centro_id}
+
 
 @router.put("/{id}")
 async def actualizar_centro(id:str,actualCentro: centro, data: tuple = Depends(verificar_admin)):

@@ -37,6 +37,7 @@ async def verificar_usuario(data: tuple = Depends(verificar_token)):
 
 async def verificar_centro(data: tuple = Depends(verificar_token)):
     uid, role = data
+    print(f"Rol recibido: '{role}'")
     if role != "centro":
         raise HTTPException(status_code=403, detail="El usuario no tiene permisos de centro")
     return uid, role
