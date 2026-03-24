@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de eventos</title>
-    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/cards.css">
+    <link rel="stylesheet" href="../css/components/forms.css">
 </head>
 <body>
     <header>
@@ -26,18 +30,17 @@
 
     <main>
         <h1>Gestión de eventos</h1>
-        <button id="agregarButton">Agregar evento</button>
         <div class="forms-container" id="formContainer">
-            <form>
+            <form class="form">
                 <input type="text" id="eventName" placeholder="Ingrese el titulo del evento">
                 <input type="text" id="eventCat" placeholder="Ingrese la categoria del evento">
                 <input type="text" id="eventDir" placeholder="Ingrese la ubicación del evento">
                 <input type="datetime-local" id="eventFechaHora" placeholder="Ingrese la fecha y hora del evento">
                 <textarea name="eventDesc" id="eventDesc"></textarea>
-                <button id="submitButton">Crear evento</button>
+                <button class="button" id="submitButton">Crear evento</button>
             </form>
         </div>
-        <div id="eventsContainer">
+        <div id="eventsContainer" class="cards-container">
 
         </div>
 

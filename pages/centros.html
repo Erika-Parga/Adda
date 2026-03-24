@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de centros culturales</title>
-    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/cards.css">
+    <link rel="stylesheet" href="../css/components/forms.css">
+    
 </head>
 <body>
     <header>
@@ -26,18 +31,17 @@
 
     <main>
         <h1>Gestión de centros culturales</h1>
-        <button id="agregarButton">Agregar centro</button>
         <div class="forms-container" id="formContainer">
-            <form>
+            <form class="form">
                 <input type="text" id="centerName" placeholder="Ingrese el nombre del centro">
                 <input type="text" id="centerDir" placeholder="Ingrese la ubicación del centro">
                 <textarea name="centerDesc" id="centerDesc"></textarea>
                 <input type="text" id="centerResp" placeholder="Ingrese el ID del responsable del centro">
-                <button id="submitButton">Crear centro</button>
+                <button class="button" id="submitButton">Crear centro</button>
             </form>
         </div>
 
-        <div id="centrosContainer">
+        <div id="centrosContainer" class="cards-container">
 
         </div>
 

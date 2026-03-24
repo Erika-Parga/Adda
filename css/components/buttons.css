@@ -1,0 +1,9 @@
+.btn-eliminar-agenda{
+    border-radius: 35px;
+    background-color: var(--primary);
+    color: var(--light);
+    font-weight: bold;
+    padding: 1rem;
+    
+    
+}

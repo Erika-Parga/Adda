@@ -5,15 +5,23 @@ async function mostrarTarjetas(eventos) {
     eventos.forEach(evento => {
         const div = document.createElement("div");
         div.classList.add("evento");
-
+        const fecha = new Date(evento.fecha)
+        const fechaLegible = fecha.toLocaleDateString("es-MX", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        })
         div.innerHTML = `
-        <h3>${evento.titulo}</h3>
-        <p>${evento.ubicacion}</p>
+        <img src="https://placehold.co/400x200/FF6B1A/white?text=Adda" alt="${evento.titulo}">
+        <h2>${evento.titulo}</h2>
+        <h3>${evento.categoria}</h3>
+        <small>${evento.ubicacion} - ${fechaLegible}</small>
         <p>${evento.descripcion}</p>
-        <p>${evento.fecha}</p>
-        <p>${evento.categoria}</p>
         
-        <button id="deleteButton" class="btn-eliminar" data-id="${evento.id}">Eliminar</button>
+        
+        
         <button id="editButton" class="btn-editar" data-id="${evento.id}" data-id="${evento.id}"
         data-titulo="${evento.titulo}"
         data-categoria="${evento.categoria}"
@@ -21,6 +29,7 @@ async function mostrarTarjetas(eventos) {
         data-descripcion="${evento.descripcion}"
         data-fecha="${evento.fecha}">
         Editar</button>
+        <button id="deleteButton" class="btn-eliminar" data-id="${evento.id}">Eliminar</button>
         `;
 
         eventsContainer.appendChild(div);

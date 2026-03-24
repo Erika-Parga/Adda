@@ -110,21 +110,11 @@ h1{
 }
 body{
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+     background-attachment: fixed;
     margin: 0;
 }
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:1rem
-}
-.profile-img{
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-}
-main a{
-    color:black;
-    padding-top: 10rem;
+.oculto {
+    display: none;
 }
