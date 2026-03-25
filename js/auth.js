@@ -20,25 +20,28 @@ async function login(e) {
         });
 
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            const errorData = await response.json();
+            alert(errorData.detail);
         }
+        else{
+            const result = await response.json();
+            const token = result.token
+            const role = result.rol
+            sessionStorage.setItem('authToken', token)
+            sessionStorage.setItem('authRole', role)
 
-        const result = await response.json();
-        const token = result.token
-        const role = result.rol
-        sessionStorage.setItem('authToken', token)
-        sessionStorage.setItem('authRole', role)
-
-        if (role === "superadmin") {
-            window.location.href = "../index.html";
-        } else if (role === "centro") {
-            window.location.href = "../index.html";
-        } else {
-            window.location.href = "../index.html";
+            if (role === "superadmin") {
+                window.location.href = "../index.html";
+            } else if (role === "centro") {
+                window.location.href = "../index.html";
+            } else {
+                window.location.href = "../index.html";
+            }
+            alert("Inicio de sesión exitoso")
         }
 
     } catch (error) {
-        console.error(error.message);
+        alert(error.message);
     }
 }
 
@@ -57,13 +60,17 @@ async function register(e){
         });
 
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            const errorData = await response.json();
+            alert(errorData.detail);
+        }
+        else{
+            alert("Cuenta creada con éxito")
+            window.location.href = "../pages/login.html"
+            
         }
 
-        window.location.href = "../pages/login.html"
-
     } catch (error) {
-        console.error(error.message);
+        alert(error.message);
     }
 }
 

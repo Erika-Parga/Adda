@@ -67,11 +67,15 @@ eventsContainer.addEventListener('click', async (e) => {
         });
 
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            const errorData = await response.json();
+            alert(errorData.detail);
+        }
+        else{
+            alert("Evento agendado")
         }
 
         
     }catch (error) {
-        console.error(error.message);
+        alert(error.message);
     }
 }})

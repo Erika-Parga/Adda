@@ -39,12 +39,17 @@ async function crearCentro(centerName, centerDir, centerDesc, centerResp) {
             })
         });
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            const errorData = await response.json();
+            alert(errorData.detail);
         }
-        await recargarCentros();
+        else{
+            alert("Centro creado con éxito")
+            await recargarCentros();
+        }
+        
         
     } catch (error) {
-        console.error(error.message)
+        alert(error.message)
     }
 
 
@@ -87,12 +92,17 @@ async function editarCentro(id, centerName, centerDir, centerDesc, centerResp) {
             })
         });
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            const errorData = await response.json();
+            alert(errorData.detail);
         }
-        await recargarCentros();
+        else{
+            alert("Centro editado con éxito")
+            await recargarCentros();
+        }
+        
         
     } catch (error) {
-        console.error(error.message)
+        alert(error.message)
     }
 }
 
