@@ -43,7 +43,13 @@ form button{
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     border: None;
     border-radius:40px;
+    transition: transform 0.1s ease, background-color 0.2s;
 }
+form button:active{
+    transform: scale(0.95);
+    background-color: #0056b3;
+}
+
 .form-container a{
     color: #000;
     display: flex;

@@ -4,6 +4,10 @@
     color: var(--light);
     font-weight: bold;
     padding: 1rem;
+    transition: transform 0.1s ease, background-color 0.2s;
     
-    
+}
+.btn-eliminar-agenda:active{
+    transform: scale(0.95);
+    background-color: #0056b3;
 }
