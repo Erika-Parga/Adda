@@ -1,0 +1,15 @@
+:root {
+    --primary: #FF6B1A;
+    --secondary: #f6cb75;
+    --accent: #FF6B1A;
+    --light: #f8f9fa;
+    --dark: #2d3436;
+    --text: #0b0f10;
+    --today: #82553d;
+    --selected: #FF6B1A;
+    --event-panel-bg: #f8f9fa;
+    --border-radius: 12px;
+    --sombra: 0 2px 8px rgba(0,0,0,0.1);
+    --padding-seccion: 2rem;
+    --max-width: 1200px;
+}

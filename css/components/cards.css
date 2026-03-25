@@ -1,0 +1,67 @@
+
+#eventsContainer, #centrosContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: var(--padding-seccion);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+
+.evento, .centro {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.evento:hover, .centro:hover {
+  cursor: pointer; 
+  transform: translateY(-10px); 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  
+}
+
+
+.evento img, .centro img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+
+.evento h3, .centro h3 {
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+
+.evento p, .centro p,
+.evento small, .centro small {
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+
+.btn-agendar, .btn-editar, .btn-eliminar {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.btn-agendar, .btn-editar {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-eliminar {
+    background: #e74c3c;
+    color: white;
+}

@@ -2,7 +2,6 @@ eventsContainer = document.getElementById('eventsContainer')
 const agenRole = sessionStorage.getItem("authRole")
 
 
-
 document.addEventListener("DOMContentLoaded", async function() {
     const url = `${API_URL}/eventos`;
     try {
@@ -16,6 +15,14 @@ document.addEventListener("DOMContentLoaded", async function() {
         
         const eventos = await response.json()
         eventos.forEach(evento => {
+            const fecha = new Date(evento.fecha)
+            const fechaLegible = fecha.toLocaleDateString("es-MX", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit"
+            })
             const div = document.createElement("div");
             div.classList.add("evento");
             let botonAgendar;
@@ -25,12 +32,14 @@ document.addEventListener("DOMContentLoaded", async function() {
                 botonAgendar = ""
             }
             div.innerHTML = `
-            <h3>${evento.titulo}</h3>
-            ${botonAgendar}
-            <small>${evento.ubicacion} - ${evento.fecha}</small>
-            <h2>${evento.categoria}</h2>
+            <img src="https://placehold.co/400x200/FF6B1A/white?text=Adda" alt="${evento.titulo}">
+            <h2>${evento.titulo}</h2>
+            <h3>${evento.categoria}</h3>
+            <small>${evento.ubicacion} - ${fechaLegible}</small>
+
             <p>${evento.centro_nombre}</p>
             <p>${evento.descripcion}</p>
+            ${botonAgendar}
             `;
 
             eventsContainer.appendChild(div);
