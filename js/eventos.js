@@ -56,12 +56,17 @@ async function crearEvento(eventName, eventCat, eventDir, eventFechaHora, eventD
             })
         });
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            const errorData = await response.json();
+            alert(errorData.detail);
         }
-        await recargarEventos();
+        else{
+            alert("Evento creado con éxito")
+            await recargarEventos();
+        }
+        
         
     } catch (error) {
-        console.error(error.message)
+        alert(error.message)
     }
 
 
@@ -111,12 +116,17 @@ async function editarEvento(id, eventName, eventCat, eventDir, eventFechaHora, e
             body: JSON.stringify(body)
         });
         if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            const errorData = await response.json();
+            alert(errorData.detail);
         }
-        await recargarEventos();
+        else{
+            alert("Evento editado con éxito")
+            await recargarEventos();
+        }
+        
         
     } catch (error) {
-        console.error(error.message)
+        alert(error.message)
     }
 }
 

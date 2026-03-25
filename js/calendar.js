@@ -227,12 +227,15 @@ document.addEventListener('DOMContentLoaded', async function() {
                 }
             });
             if (!response.ok) {
-                throw new Error(`Response status: ${response.status}`);
+              const errorData = await response.json();
+              alert(errorData.detail);
             }
-            await window.location.reload()
-            
+            else{
+              alert("Evento retirado de la agenda")
+              window.location.reload()
+            }   
         } catch (error) {
-            console.error(error.message)
+            alert(error.message)
         }
         }
   });
