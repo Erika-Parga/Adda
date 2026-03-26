@@ -19,6 +19,8 @@ async def obtener_centros():
     for doc in docs:
         centro = doc.to_dict()
         centro["id"] = doc.id
+        if centro.get("estatus") != "activo":
+            continue
         centros.append(centro)
 
         responsable_id = centro.get("responsable_uid")
@@ -43,7 +45,7 @@ async def obtener_centro_por_id(id:str):
 
 @router.post("/")
 async def crear_centro(nuevoCentro: centro, data: tuple = Depends(verificar_admin)):
-    nuevo_centro = {"nombre": nuevoCentro.nombre, "direccion": nuevoCentro.direccion, "descripcion": nuevoCentro.descripcion, "responsable_uid": nuevoCentro.responsable_uid}
+    nuevo_centro = {"nombre": nuevoCentro.nombre, "direccion": nuevoCentro.direccion, "descripcion": nuevoCentro.descripcion, "responsable_uid": nuevoCentro.responsable_uid, "estatus":"activo"}
     doc_ref = db.collection("centros").add(nuevo_centro)
     centro_id = doc_ref[1].id
     db.collection("usuarios").document(nuevoCentro.responsable_uid).update({
@@ -66,7 +68,7 @@ async def eliminar_centro(id:str, data: tuple = Depends(verificar_admin)):
     doc_ref = db.collection("centros").document(id)
     doc = doc_ref.get()
     if doc.exists:
-        doc_ref.delete()
+        doc_ref.update({"estatus":"inactivo"})
     else:
             raise HTTPException(status_code=404, detail="No se encuentra ese centro")
     return {"mensaje": "Centro eliminado exitosamente"}   

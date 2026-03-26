@@ -25,6 +25,8 @@ async def obtener_agenda(data: tuple =Depends(verificar_usuario)):
         if evento_doc.exists:
             evento_data = evento_doc.to_dict()
             evento_data["agenda_id"] = doc.id
+            if evento_data.get("estatus") != "activo":
+                continue
             docs_encontrados.append(evento_data)
 
             centro_id = evento_data.get("centro_uid")
