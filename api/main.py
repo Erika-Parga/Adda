@@ -10,15 +10,15 @@ app.include_router(centros.router)
 app.include_router(eventos.router)
 app.include_router(agenda.router)
 
-#aqui pones las url de los dominios que usaras, en este caso los localhost tanto de la api como de npx serve
-#origins = [
- #   "http://#front",
-  #  "http://#api",
-#]
+origins = [
+    "https://tu-sitio.netlify.app", # Tu URL de Netlify
+    "http://localhost:3000",       # Para pruebas locales
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
