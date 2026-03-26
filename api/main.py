@@ -11,7 +11,7 @@ app.include_router(eventos.router)
 app.include_router(agenda.router)
 
 origins = [
-    "https://tu-sitio.netlify.app", # Tu URL de Netlify
+    "https://69c5b4fe6e9bfb1ca7467766--cheery-capybara-2b8a1b.netlify.app/", # Tu URL de Netlify
     "http://localhost:3000",       # Para pruebas locales
 ]
 
