@@ -23,6 +23,8 @@ async def obtener_eventos():
     for doc in docs:
         evento = doc.to_dict()
         evento["id"] = doc.id
+        if evento.get("estatus") != "activo":
+            continue
         eventos.append(evento)
 
         centro_id = evento.get("centro_uid")
@@ -52,6 +54,8 @@ async def misEventos(data: tuple = Depends(verificar_centro)):
     for doc in resultados:
         evento = doc.to_dict()
         evento["id"] = doc.id
+        if evento.get("estatus") != "activo":
+            continue
         docs_encontrados.append(evento)
 
         centro_id = evento.get("centro_uid")
@@ -82,7 +86,7 @@ async def crear_evento(nuevoEvento: evento, data: tuple = Depends(verificar_cent
     userDoc = user_ref.get()
     centro_uid = userDoc.to_dict()["centro_uid"]
 
-    nuevo_evento = {"titulo": nuevoEvento.titulo, "ubicacion": nuevoEvento.ubicacion, "fecha":nuevoEvento.fecha,"categoria":nuevoEvento.categoria,"imagen_url":nuevoEvento.img_url, "descripcion": nuevoEvento.descripcion, "centro_uid": centro_uid}
+    nuevo_evento = {"titulo": nuevoEvento.titulo, "ubicacion": nuevoEvento.ubicacion, "fecha":nuevoEvento.fecha,"categoria":nuevoEvento.categoria,"imagen_url":nuevoEvento.img_url, "descripcion": nuevoEvento.descripcion, "centro_uid": centro_uid, "estatus":"activo"}
     doc_ref = db.collection("eventos").add(nuevo_evento)
     return {"mensaje": "Evento creado exitosamente", "id": doc_ref[1].id}
 
@@ -103,7 +107,7 @@ async def eliminar_centro(id:str, data: tuple = Depends(verificar_centro)):
     doc_ref = db.collection("eventos").document(id)
     doc = doc_ref.get()
     if doc.exists:
-        doc_ref.delete()
+        doc_ref.update({"estatus":"inactivo"})
     else:
             raise HTTPException(status_code=404, detail="No se encuentra ese evento")
     return {"mensaje": "Evento eliminado exitosamente"}   
