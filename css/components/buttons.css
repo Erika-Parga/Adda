@@ -1,4 +1,4 @@
-.btn-eliminar-agenda{
+.btn-eliminar-agenda, .button{
     border-radius: 35px;
     background-color: var(--primary);
     color: var(--light);
@@ -7,7 +7,7 @@
     transition: transform 0.1s ease, background-color 0.2s;
     
 }
-.btn-eliminar-agenda:active{
+.btn-eliminar-agenda:active, .button:active{
     transform: scale(0.95);
     background-color: #0056b3;
 }
