@@ -13,16 +13,16 @@ api_key = os.getenv('FIREBASE_API_KEY')
 if not firebase_admin._apps:
     if firebase_json_str:
         try:
-            # Intentamos parsear el JSON (útil si está en Render como string)
+            # Intentamos parsear el JSON
             firebase_info = json.loads(firebase_json_str)
             cred = credentials.Certificate(firebase_info)
         except json.JSONDecodeError:
-            # Si falla el parseo, asumimos que es una ruta local (como tenías antes)
+            # Si falla el parseo, asumimos que es una ruta local
             cred = credentials.Certificate(firebase_json_str)
         
         firebase_admin.initialize_app(cred)
     else:
         raise ValueError("No se encontró la variable FIREBASE_CREDENTIALS")
 
-# 4. Instancia de la base de datos
+
 db = firestore.client()
