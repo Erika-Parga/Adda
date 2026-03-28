@@ -18,7 +18,6 @@ nav{
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 100dvh;
 }
 .logo{
     color: #000000;
@@ -52,11 +51,6 @@ nav{
 }
 
 @media(max-width:768px){
-    body {
-        background-attachment: scroll; /* fixed no funciona bien en móvil */
-        min-height: 100dvh;
-        overscroll-behavior-y: none; /* evita el rebote */
-    }
     
     .menu-btn{
         display:block;
@@ -103,7 +97,6 @@ nav{
     left: 0;
     width: 100%;
     height: 100%;
-    min-height: 100dvh;
     background: rgba(0, 0, 0, 0.5);
     z-index: 50; /* detrás del menú */
     transition: opacity 0.3s ease;
@@ -118,10 +111,9 @@ h1{
 }
 body{
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    min-height: 100dvh; 
+    min-height: 100vh;
     background-size: cover;
     margin: 0;
-    background-attachment: scroll;
 }
 
 .oculto {
