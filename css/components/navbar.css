@@ -53,6 +53,7 @@ nav{
 @media(max-width:768px){
     body{
         background-attachment: scroll !important;
+        background: linear-gradient(40deg, #f98e2a 20%, #ffffff 45%);;
     }
     
     .menu-btn{
@@ -113,13 +114,13 @@ h1{
     justify-content: center;
 }
 
+
 body {
-    background-image: url('../../assets/fondo.png');
+    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100dvh;
     margin: 0;
-    background-attachment: fixed;
 }
 
 .oculto {
