@@ -119,6 +119,7 @@ html {
 }
 
 body {
+    top: 40px;
     min-height: 100dvh;
     background: transparent; /* sin fondo propio */
     margin: 0;
