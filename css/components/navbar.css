@@ -127,17 +127,13 @@ body {
     display: flex;
     flex-direction: column;
 }
-header {
-    flex-shrink: 0; /* Que no se encoja */
-    background: white; /* O el color de tu nav para tapar el inicio */
-    border-width: 3px;
-}
+
 main {
-    flex: 1;
     overflow-y: auto;
-    overflow-x: hidden; /* Evita scrolls laterales accidentales */
+    overflow-x: hidden; 
     width: 100%;
-    display: block; /* Importante para que el grid interno respete el ancho */
+    height: 100%;
+    display: block; 
     overscroll-behavior-y: contain;
 }
 .oculto {
