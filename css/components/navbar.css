@@ -118,7 +118,7 @@ body{
 }
 
 html{
-    background-color: #f98e2a;
+    overscroll-behavior: none;
 }
 
 .oculto {
