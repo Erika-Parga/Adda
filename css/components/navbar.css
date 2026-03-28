@@ -117,6 +117,10 @@ body{
     background-attachment: fixed;
 }
 
+html{
+    background-color: #f98e2a;
+}
+
 .oculto {
     display: none;
 }
