@@ -18,6 +18,7 @@ nav{
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    position: fixed;
 }
 .logo{
     color: #000000;
@@ -104,6 +105,7 @@ nav{
 
 .overlay.active {
     display: block;
+    position: fixed;
 }
 h1{
     display: flex;
@@ -114,7 +116,6 @@ body{
     min-height: 100vh;
     background-size: cover;
     margin: 0;
-    background-attachment: fixed;
 }
 html {
   
