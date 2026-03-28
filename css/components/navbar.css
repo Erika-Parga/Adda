@@ -131,7 +131,6 @@ header {
     flex-shrink: 0; /* Que no se encoja */
     background: white; /* O el color de tu nav para tapar el inicio */
     z-index: 49;
-    border-color: #8d240c;
     border-width: 3px;
 }
 main {
