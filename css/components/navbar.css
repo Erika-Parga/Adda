@@ -51,10 +51,7 @@ nav{
 }
 
 @media(max-width:768px){
-    body{
-        background-attachment: scroll !important;
-        background-color: #eebe92;
-    }
+    
     
     .menu-btn{
         display:block;
