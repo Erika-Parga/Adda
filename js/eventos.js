@@ -174,8 +174,7 @@ async function eliminarEvento(id) {
 }
 
 document.addEventListener("DOMContentLoaded", async function() {
-    document.documentElement.style.overscrollBehavior = 'none';
-    document.body.style.overscrollBehavior = 'none';
+    
     let modoEdicion = false        
     let eventoEditandoId = null 
     const url = `${API_URL}/eventos/mis-eventos`;
