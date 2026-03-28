@@ -1,9 +1,4 @@
 {
     "buildCommand": null,
-    "outputDirectory": ".",
-    "ignoreCommand": "exit 1",
-    "functions": {},
-    "rewrites": [],
-    "headers": [],
-    "cleanUrls": true
+    "outputDirectory": "."
 }
