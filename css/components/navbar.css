@@ -118,7 +118,11 @@ body{
 }
 
 html{
-    overscroll-behavior: contain;
+    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    margin: 0;
+    background-attachment: fixed;
 }
 
 .oculto {
