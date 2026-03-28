@@ -113,19 +113,20 @@ h1{
     justify-content: center;
 }
 
-html {
+html, body {
     height: 100%;
+    width: 100%;
+    overflow: hidden; 
+    margin: 0;
+    
 }
 body {
-    min-height: 100%;
-    width: 100%;
-    margin: 0;
+    /* El fondo ahora es una capa base que no sabe que existe el scroll */
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    background-attachment: fixed; /* ← esto fija el gradiente sin romper el scroll nativo */
+    background-size: cover;
     display: flex;
     flex-direction: column;
 }
-
 header {
     flex-shrink: 0; /* Que no se encoja */
     background: white; /* O el color de tu nav para tapar el inicio */
