@@ -133,7 +133,6 @@ header {
     z-index: 100;
 }
 main {
-    flex-grow: 1;
     overflow-y: auto; /* Solo aquí hay scroll */
     -webkit-overflow-scrolling: touch;
     display: flex;
