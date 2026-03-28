@@ -133,11 +133,11 @@ header {
     z-index: 100;
 }
 main {
-    overflow-y: auto; /* Solo aquí hay scroll */
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 50px; /* Margen de seguridad para la barra de Android */
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden; /* Evita scrolls laterales accidentales */
+    width: 100%;
+    display: block; /* Importante para que el grid interno respete el ancho */
 }
 .oculto {
     display: none;
