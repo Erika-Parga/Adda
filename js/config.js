@@ -1,1 +1,1 @@
-const API_URL = "https://adda-hujc.onrender.com";
+const API_URL = "http://localhost:8000";

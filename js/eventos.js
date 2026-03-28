@@ -14,7 +14,7 @@ async function mostrarTarjetas(eventos) {
             minute: "2-digit"
         })
         div.innerHTML = `
-        <img src="https://placehold.co/400x200/FF6B1A/white?text=Adda" alt="${evento.titulo}">
+        <img src="${evento.imagen_url}" alt="${evento.titulo}">
         <h2>${evento.titulo}</h2>
         <h3>${evento.categoria}</h3>
         <small>${evento.ubicacion} - ${fechaLegible}</small>
@@ -36,10 +36,27 @@ async function mostrarTarjetas(eventos) {
     })
 }
 
+function base64Convert(eventImage){
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result); 
+        reader.onerror = reject;
+        reader.readAsDataURL(eventImage);
+    })
+  
+}
+
 async function crearEvento(eventName, eventCat, eventDir, eventFechaHora, eventDesc) {
     const url = `${API_URL}/eventos/`;
+   
     
     try {
+        const eventImage = document.getElementById('eventImage');
+        let imagen_base64 = null;
+        if (eventImage.files[0]) {
+            imagen_base64 = await base64Convert(eventImage.files[0]);
+        }
+
         const response = await fetch(url, {
             method: "POST",   
             headers: {"Content-Type": "application/json",
@@ -51,7 +68,7 @@ async function crearEvento(eventName, eventCat, eventDir, eventFechaHora, eventD
                 fecha: eventFechaHora.value,
                 categoria: eventCat.value,
                 descripcion: eventDesc.value,
-                img_url:"",
+                base64_str:imagen_base64,
                 
             })
         });
@@ -98,12 +115,18 @@ async function editarEvento(id, eventName, eventCat, eventDir, eventFechaHora, e
     const url = `${API_URL}/eventos/${id}`;
     
     try {
+        const eventImage = document.getElementById('eventImage');
+        let imagen_base64 = null;
+        if (eventImage.files[0]) {
+            imagen_base64 = await base64Convert(eventImage.files[0]);
+        }
+
         const body = {
             titulo: eventName.value,
             ubicacion: eventDir.value,
             categoria: eventCat.value,
             descripcion: eventDesc.value,
-            img_url: "",
+            base64_str: imagen_base64,
         }
         if (eventFechaHora.value) {
             body.fecha = eventFechaHora.value

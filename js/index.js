@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 botonAgendar = ""
             }
             div.innerHTML = `
-            <img src="https://placehold.co/400x200/FF6B1A/white?text=Adda" alt="${evento.titulo}">
+            <img src="${evento.imagen_url}" alt="${evento.titulo}">
             <h2>${evento.titulo}</h2>
             <h3>${evento.categoria}</h3>
             <small>${evento.ubicacion} - ${fechaLegible}</small>
