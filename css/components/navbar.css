@@ -51,6 +51,11 @@ nav{
 }
 
 @media(max-width:768px){
+    body {
+        background-attachment: scroll; /* fixed no funciona bien en móvil */
+        min-height: 100dvh;
+        overscroll-behavior-y: none; /* evita el rebote */
+    }
     
     .menu-btn{
         display:block;
@@ -111,10 +116,10 @@ h1{
 }
 body{
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    min-height: 100vh;
+    min-height: 100dvh; /* ← dvh en lugar de vh */
     background-size: cover;
     margin: 0;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 
 .oculto {
