@@ -109,11 +109,19 @@ h1{
     display: flex;
     justify-content: center;
 }
-html, body{
+body{
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
     min-height: 100vh;
-    background-attachment: fixed;
+    
     margin: 0;
+}
+html {
+  
+  height: 100%;
+ 
+  background-repeat: no-repeat;
+ 
+  background-attachment: fixed;
 }
 .oculto {
     display: none;
