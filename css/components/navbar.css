@@ -138,6 +138,7 @@ main {
     overflow-x: hidden; /* Evita scrolls laterales accidentales */
     width: 100%;
     display: block; /* Importante para que el grid interno respete el ancho */
+    overscroll-behavior-y: contain;
 }
 .oculto {
     display: none;
