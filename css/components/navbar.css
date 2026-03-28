@@ -114,7 +114,7 @@ html, body {
 }
 
 body {
-    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
+    background-image: url('../../assets/fondo.png');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100dvh;
