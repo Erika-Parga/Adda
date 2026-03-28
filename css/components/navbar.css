@@ -130,7 +130,7 @@ body {
 header {
     flex-shrink: 0; /* Que no se encoja */
     background: white; /* O el color de tu nav para tapar el inicio */
-    z-index: 49;
+    z-index: 30;
     border-width: 3px;
 }
 main {
