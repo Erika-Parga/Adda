@@ -53,7 +53,7 @@ nav{
 @media(max-width:768px){
     body{
         background-attachment: scroll !important;
-        background: linear-gradient(40deg, #f98e2a 20%, #ffffff 45%);;
+        
     }
     
     .menu-btn{
