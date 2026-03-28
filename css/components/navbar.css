@@ -61,6 +61,7 @@ nav{
         top: 0px;
         right: 0;
         width: 80%;
+        height: 100dvh;
         height: 100%;
         background-color: rgb(255, 255, 255);
         flex-direction: column;
