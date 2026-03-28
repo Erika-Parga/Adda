@@ -112,7 +112,7 @@ body{
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    
     margin: 0;
 }
 .oculto {
