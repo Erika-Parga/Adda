@@ -132,7 +132,7 @@ header {
     background: white; /* O el color de tu nav para tapar el inicio */
     z-index: 100;
     border-color: #8d240c;
-    border-width: 1px;
+    border-width: 3px;
 }
 main {
     flex: 1;
