@@ -118,6 +118,3 @@ body{
 .oculto {
     display: none;
 }
-html, body {
-    overscroll-behavior: none;
-}
