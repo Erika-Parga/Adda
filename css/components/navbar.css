@@ -116,7 +116,7 @@ body {
     background-size: cover;
     min-height: 100dvh;
     margin: 0;
-    /* ← sin background-attachment: fixed */
+    background-attachment: fixed;
 }
 
 .oculto {
