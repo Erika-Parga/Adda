@@ -110,17 +110,16 @@ h1{
     justify-content: center;
 }
 
-html {
-    min-height: 100%;
+main {
+    min-height: 100dvh;
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-body {
-    min-height: 100dvh;
-    background: transparent; /* sin fondo propio */
+body, html {
+    background: transparent;
     margin: 0;
 }
 
