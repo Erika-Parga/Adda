@@ -118,6 +118,6 @@ body{
 .oculto {
     display: none;
 }
-html {
-    background-color: transparent;
+html, body {
+    overscroll-behavior: none;
 }
