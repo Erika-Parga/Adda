@@ -111,7 +111,7 @@ h1{
 body{
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
     min-height: 100vh;
-    
+    background-attachment: fixed;
     margin: 0;
 }
 .oculto {
