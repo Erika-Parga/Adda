@@ -112,19 +112,14 @@ h1{
 }
 
 
-html {
-    min-height: 100dvh;
-    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed; /* fixed aquí sí funciona bien */
+body {
+  background-image: url('../../assets/fondo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* Opcional: fija la imagen al hacer scroll */
 }
 
-body {
-    min-height: 100dvh;
-    background: transparent; /* body transparente */
-    margin: 0;
-}
 
 .oculto {
     display: none;
