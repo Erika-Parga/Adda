@@ -117,11 +117,18 @@ body{
     background-attachment: fixed;
 }
 
-html{
-    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+html {
     min-height: 100%;
+    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* fixed aquí sí funciona bien */
+}
+
+body {
+    min-height: 100%;
+    background: transparent; /* body transparente */
+    margin: 0;
 }
 
 .oculto {
