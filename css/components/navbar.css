@@ -109,9 +109,6 @@ h1{
     display: flex;
     justify-content: center;
 }
-html, body {
-    min-height: 100dvh;
-}
 
 body {
     background-image: url('../../assets/fondo.png');
