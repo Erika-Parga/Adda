@@ -119,7 +119,7 @@ body{
 
 html{
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    
+    background-attachment: fixed;
 }
 
 .oculto {
