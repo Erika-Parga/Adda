@@ -112,7 +112,7 @@ h1{
 body{
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
     min-height: 100vh;
-    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0;
     background-attachment: fixed;
 }
