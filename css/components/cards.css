@@ -29,11 +29,10 @@
 
 
 .evento img, .centro img {
-    margin: -1.2rem -1.2rem 0 -1.2rem;
-    width: calc(100% + 2.4rem);
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    width: 100%;
     height: 180px;
     object-fit: cover;
+    border-radius: var(--border-radius);
 }
 
 
