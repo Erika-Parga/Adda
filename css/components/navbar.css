@@ -110,17 +110,13 @@ h1{
     justify-content: center;
 }
 
-main {
-    min-height: 100dvh;
-    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    background-attachment: fixed;
+body {
+    background-image: url('../../assets/fondo.png');
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-body, html {
-    background: transparent;
+    min-height: 100dvh;
     margin: 0;
+    /* ← sin background-attachment: fixed */
 }
 
 .oculto {
