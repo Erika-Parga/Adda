@@ -109,12 +109,16 @@ h1{
     display: flex;
     justify-content: center;
 }
-body{
+html, body {
+    min-height: 100dvh;
+}
+
+body {
     background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    margin: 0;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
 }
 
 .oculto {
