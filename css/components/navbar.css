@@ -113,17 +113,33 @@ h1{
     justify-content: center;
 }
 
-html{
-    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
-    background-attachment: fixed;
+html, body {
     height: 100%;
+    width: 100%;
+    overflow: hidden; /* Esto mata el "levantamiento" del fondo */
+    margin: 0;
+    position: fixed;
 }
 body {
-    margin: 0;
-    min-height: 100%;
-    background: transparent;
+    /* El fondo ahora es una capa base que no sabe que existe el scroll */
+    background: linear-gradient(40deg, #f98e2a 10%, #ffffff 65%);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
-
+header {
+    flex-shrink: 0; /* Que no se encoja */
+    background: white; /* O el color de tu nav para tapar el inicio */
+    z-index: 100;
+}
+main {
+    flex-grow: 1;
+    overflow-y: auto; /* Solo aquí hay scroll */
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px; /* Margen de seguridad para la barra de Android */
+}
 .oculto {
     display: none;
 }
