@@ -13,6 +13,7 @@ app.include_router(agenda.router)
 origins = [
     "https://adda-agenda-cultural.netlify.app", #URL de Netlify
     "http://localhost:3000",       # Para pruebas locales
+    "http://192.168.1.149:3000"
 ]
 
 app.add_middleware(
