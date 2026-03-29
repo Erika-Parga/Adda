@@ -19,11 +19,10 @@ self.addEventListener('install', e => {
 self.addEventListener('fetch', e => {
   const url = e.request.url;
 
-  // ¿Es una petición a tu API?
+  
   if (url.startsWith(URL_API)) {
     e.respondWith(manejarAPI(e.request));
   } else {
-    // Archivos estáticos: caché primero
     e.respondWith(
       caches.match(e.request).then(resp => resp || fetch(e.request))
     );
@@ -37,7 +36,6 @@ async function manejarAPI(request) {
     // Intenta ir a la red primero
     const respRed = await fetch(request);
 
-    // Si fue exitosa, guarda la respuesta fresca en caché
     if (respRed.ok) {
       cache.put(request, respRed.clone());
     }
@@ -45,7 +43,6 @@ async function manejarAPI(request) {
     return respRed;
 
   } catch (error) {
-    // Sin internet: devuelve lo que había guardado
     const respCache = await cache.match(request);
 
     if (respCache) {
