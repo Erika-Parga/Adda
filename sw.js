@@ -1,5 +1,5 @@
 
-const CACHE_ESTATICO = 'adda-estatico-v1';
+const CACHE_ESTATICO = 'adda-estatico-v2';
 const CACHE_API = 'adda-api-v1';
 
 const URL_API = 'https://adda-hujc.onrender.com';
@@ -56,3 +56,15 @@ async function manejarAPI(request) {
     );
   }
 }
+
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys
+          .filter(key => key !== CACHE_ESTATICO && key !== CACHE_API)
+          .map(key => caches.delete(key))
+      )
+    )
+  );
+});
