@@ -44,9 +44,11 @@ document.addEventListener("DOMContentLoaded", async function() {
 
             eventsContainer.appendChild(div);
         })
+        document.getElementById('aviso-offline').hidden = true;
 
     } catch (error) {
         console.error(error.message);
+        document.getElementById('aviso-offline').hidden = false;
     }
 })
 

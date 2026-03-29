@@ -1,0 +1,21 @@
+{
+  "name": "Adda: Mi agenda cultural",
+  "short_name": "Adda",
+  "description": "Aplicación de difusión y agendamiento de eventos culturales",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FF6B1A",
+  "icons": [
+    {
+      "src": "assets/icons/difusion.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

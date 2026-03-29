@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/components/navbar.css">
     <link rel="stylesheet" href="../css/components/cards.css">
+    <link rel="manifest" href="/manifest.json">
     
 </head>
 <body>
@@ -30,6 +31,9 @@
 
     <main>
         <h1>Eventos</h1>
+        <div id="aviso-offline" hidden>
+        📴 Estás sin conexión — mostrando eventos de tu última visita
+        </div>
         <div id="eventsContainer" class="cards-container">
 
         </div>
@@ -41,6 +45,14 @@
 <script src="js/navbar.js"></script>
 <script src="js/config.js"></script>
 <script src="js/index.js"></script>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('SW registrado ✅'))
+            .catch(err => console.error('Error SW:', err));
+}
+</script>
 
 </body>
 </html>
